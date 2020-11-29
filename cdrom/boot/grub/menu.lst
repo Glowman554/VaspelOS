@@ -1,0 +1,7 @@
+title VaspelOS
+kernel /nxkrnl
+module /initrd.img
+module /init.bin
+module /terminal.bin
+module /test.bin
+boot
