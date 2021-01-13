@@ -48,28 +48,20 @@ void print_time(){
 	kprintf("%d:%d:%d\n", h, m, s);
 }
 
+int strlen(char *src){
+	int i = 0;
+	while (*src++)
+		i++;
+	return i;
+}
+
 void bf(){
 
 	kprintf("[.bf] >>> ");
 
-	bool reading = true;
-    
-	int len = 0;
-	char in[100];
+	char* in;
 
-	while(reading){
-		in[len] = getchar();
-		kprintf("%c", in[len]);
-		if(in[len] == 10){
-			in[len] = '\0';
-			reading = false;
-		}else{
-			len++;
-		}
-			
-		reset_timer_tick();
-		while(get_timer_tick() < 3);
-	}
+	in = get_input();
 
 	kprintf("\n\n");
 
@@ -112,29 +104,15 @@ void print_initrd_file(char* file){
 }
 
 void _start(){
-	bool reading = true;
-    
 	int len = 0;
-	char in[100];
+	char* in;
 	
 	mb_info = get_mb_ptr();
 	
     
 	while(1){
 		kprintf(">>");
-		while(reading){
-			in[len] = getchar();
-			kprintf("%c", in[len]);
-			if(in[len] == 10){
-				in[len] = '\0';
-				reading = false;
-			}else{
-				len++;
-			}
-			
-			reset_timer_tick();
-			while(get_timer_tick() < 3);
-		}
+		in = get_input();
 		
 		if(strcmp(in, "reboot")==0) reboot();
 		if(strcmp(in, "debugerr")==0) task_exit(1);
@@ -179,12 +157,11 @@ void _start(){
 			kprintf("vaspel-pic\n");
 		}
 		
+		len = strlen(in);
+
 		if(in[len-1] == 'n' && in[len-2] == 'i' && in[len-3] == 'b' && in[len-4] == '.'){
 			exec(in);
 			task_exit(0);
 		}
-		
-		reading = true;
-		len = 0;
 	}
 }

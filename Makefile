@@ -20,11 +20,6 @@ clean:
 	make -C user clean
 	make -C pic clean
 
-pack: clean
-	mkdir pack
-	zip -r pack/nxkrnl.zip nxkrnl/nxkrnl
-	zip -r pack/nxkrnl-src.zip nxkrnl/*
-	cp cdrom.iso pack/nextos.iso
 
 push: clean
 	git add .
