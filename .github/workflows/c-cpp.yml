@@ -18,5 +18,7 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - uses: Glowman554/setup-nasm@v1
+    - name: Install PIL
+      run: sudo pip3 install Pillow
     - name: make
       run: make
