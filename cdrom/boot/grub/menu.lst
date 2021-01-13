@@ -1,7 +1,10 @@
 title VaspelOS
 kernel /nxkrnl
 module /initrd.img
-module /init.bin
-module /terminal.bin
-module /test.bin
+module /progs/init.bin
+module /progs/terminal.bin
+module /progs/desktop.bin
+module /progs/timer.bin
+module /driver/cmos.drv
+module /driver/bf.drv
 boot
