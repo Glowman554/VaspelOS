@@ -1,5 +1,6 @@
 all:
 	make -C nxkrnl
+	make -C pic
 	make -C user
 	make -C initrd
 
@@ -17,6 +18,7 @@ run: iso
 clean:
 	make -C nxkrnl clean
 	make -C user clean
+	make -C pic clean
 
 pack: clean
 	mkdir pack

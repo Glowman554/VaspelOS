@@ -153,6 +153,10 @@ void _start(){
 		if(strcmp(in, "bf")==0) bf();
 
 		if(strcmp(in, "vaspel")==0) print_initrd_file("vaspel-ascii.txt");
+		if(strcmp(in, "vaspel-pic")==0) {
+			exec("/progs/vaspel-pic.bin");
+			task_exit(0);
+		}
 		if(strcmp(in, "timer")==0) {
 			exec("/progs/timer.bin");
 			task_exit(0);
@@ -172,6 +176,7 @@ void _start(){
 			kprintf("timer\n");
 			kprintf("bf\n");
 			kprintf("vaspel\n");
+			kprintf("vaspel-pic\n");
 		}
 		
 		if(in[len-1] == 'n' && in[len-2] == 'i' && in[len-3] == 'b' && in[len-4] == '.'){

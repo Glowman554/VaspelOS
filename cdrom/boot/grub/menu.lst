@@ -7,4 +7,5 @@ module /progs/desktop.bin
 module /progs/timer.bin
 module /driver/cmos.drv
 module /driver/bf.drv
+module /progs/vaspel-pic.bin
 boot
