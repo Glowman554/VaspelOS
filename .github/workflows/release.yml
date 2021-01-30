@@ -18,6 +18,8 @@ jobs:
     - uses: Glowman554/setup-nasm@v1
     - name: setup
       run: sudo apt install genisoimage
+    - name: Install PIL
+      run: sudo pip3 install Pillow
     - name: make
       run: make iso
     - uses: marvinpinto/action-automatic-releases@latest
