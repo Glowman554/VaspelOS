@@ -1,2 +1,0 @@
-vaspel.bmp
-vaspel.h
